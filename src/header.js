@@ -16,32 +16,32 @@ To-do:
 */
 
 // HTML Tag
-const root = document.querySelector("#root");
 const header = document.createElement("header");
-
 const menuBar = document.createElement("div");
-
 const menuBarNavIcon = document.createElement("div");
 const menuBarTitle = document.createElement("div");
 const menuBarIcons = document.createElement("div");
-
 const title = document.createElement("h1");
 const navIcon = document.createElement("img");
 const questionMark = document.createElement("img");
 const chartBar = document.createElement("img");
 const settingIcon = document.createElement("img");
-
+const headerStyle = header.style;
+const menuBarStyle = menuBar.style;
+const menuBarNavIconStyle = menuBarNavIcon.style;
+const menuBarTitleStyle = menuBarTitle.style;
+const titleStyle = title.style;
+const navIconStyle = navIcon.style;
+const menuBarIconsStyle = menuBarIcons.style;
+const questionMarkStyle = questionMark.style;
+const chartBarStyle = chartBar.style;
+const settingIconStyle = settingIcon.style;
 const titleText = "Wordle";
-
-// Selector
-menuBar.setAttribute("class", "menu-bar");
-menuBarNavIcon.setAttribute("class", "menu-bar__navIcon");
-menuBarTitle.setAttribute("class", "menu-bar__title");
-menuBarIcons.setAttribute("class", "menu-bar__icons");
 
 // Contents
 title.innerText = titleText;
 
+// Icon Image
 navIcon.src = "./assets/navIcon.svg";
 navIcon.alt = "navIcon";
 questionMark.src = "./assets/questionMark.svg";
@@ -52,50 +52,55 @@ settingIcon.src = "./assets/settingIcon.svg";
 settingIcon.alt = "settingIcon";
 
 // CSS
-headerStyle = header.style;
-headerStyle.position = "fixed";
-headerStyle.top = "0";
+headerStyle.display = "flex";
+headerStyle.justifyContent = "space-between";
+headerStyle.alignItems = "center";
 headerStyle.width = "100vw";
 headerStyle.borderBottom = "2px solid rgb(215, 215, 215)";
 headerStyle.paddingTop = "10px";
 headerStyle.paddingBottom = "10px";
 headerStyle.backgroundColor = "rgb(248, 248, 248)";
 
-menuBarStyle = menuBar.style;
 menuBarStyle.display = "flex";
 menuBarStyle.justifyContent = "space-between";
 menuBarStyle.alignItems = "center";
-menuBarStyle.marginTop = "10px";
+menuBarStyle.width = "100vw";
+menuBarStyle.marginLeft = "30px";
+menuBarStyle.marginRight = "30px";
 
-menuBarNavIconStyle = menuBarNavIcon.style;
 menuBarNavIconStyle.display = "flex";
 menuBarNavIconStyle.justifyContent = "center";
 menuBarNavIconStyle.alignItems = "center";
-menuBarNavIconStyle.marginRight = "15px";
 
-menuBarTitleStyle = menuBarTitle.style;
-
-menuBarIconsStyle = menuBarIcons.style;
 menuBarIconsStyle.display = "flex";
 menuBarIconsStyle.justifyContent = "center";
 menuBarIconsStyle.alignItems = "center";
-menuBarIconsStyle.marginRight = "15px";
+menuBarIconsStyle.gap = "13px";
 
-titleStyle = title.style;
 titleStyle.fontSize = "35px";
 titleStyle.marginTop = "3px";
 titleStyle.marginBottom = "3px";
-navIconStyle = navIcon.style;
+titleStyle.justifyContent = "center";
+titleStyle.alignItems = "center";
+
 navIconStyle.width = "45px";
-questionMarkStyle = questionMark.style;
+navIconStyle.justifyContent = "center";
+navIconStyle.alignItems = "center";
+
 questionMarkStyle.width = "40px";
-chartBarStyle = chartBar.style;
+questionMarkStyle.justifyContent = "center";
+questionMarkStyle.alignItems = "center";
+
 chartBarStyle.width = "40px";
-settingIconStyle = settingIcon.style;
+chartBarStyle.justifyContent = "center";
+chartBarStyle.alignItems = "center";
+
 settingIconStyle.width = "40px";
+settingIconStyle.justifyContent = "center";
+settingIconStyle.alignItems = "center";
 
 // HTML
-root.appendChild(header);
+body.appendChild(header);
 header.appendChild(menuBar);
 menuBar.appendChild(menuBarNavIcon);
 menuBar.appendChild(menuBarTitle);
@@ -105,36 +110,3 @@ menuBarTitle.appendChild(title);
 menuBarIcons.appendChild(questionMark);
 menuBarIcons.appendChild(chartBar);
 menuBarIcons.appendChild(settingIcon);
-
-class BoardRow extends HTMLElement {
-  connectedCallback() {
-    this.start();
-  }
-
-  start() {
-    let boardBlock = [];
-    const boardRow = document.createElement("div");
-
-    this.appendChild(boardRow);
-    boardRow.setAttribute("class", "board-row");
-
-    for (let i = 0; i < 5; i++) {
-      boardBlock[i] = document.createElement("div");
-      boardBlock[i].setAttribute("class", "board-block");
-      boardRow.appendChild(boardBlock[i]);
-    }
-  }
-}
-
-customElements.define("bord-row", BoardRow);
-
-let boardRow = [];
-const main = document.createElement("main");
-
-root.appendChild(main);
-
-for (let i = 0; i < 5; i++) {
-  boardRow[i] = document.createElement("bord-row");
-  boardRow[i].setAttribute("class", `row${i}`);
-  main.appendChild(boardRow[i]);
-}

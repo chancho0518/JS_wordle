@@ -1,6 +1,9 @@
-const body = document.querySelector("body");
+// const tag = ["h1", "h2", "h3", "h4", "h5", "h6"];
 
-body.style.fontFamily = `-apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo",
-"Pretendard Variable", Pretendard, Roboto, "Noto Sans KR", "Segoe UI",
-"Malgun Gothic", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",
-sans-serif`;
+// for (let i = 0; i < tag.length; i++) {
+//   const tagElement = document.createElement(tag[i]);
+//   tagElement.innerText = tag[i];
+//   boardRow0.appendChild(tagElement);
+// }
+
+const body = document.querySelector("body");
