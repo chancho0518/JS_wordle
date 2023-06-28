@@ -112,44 +112,29 @@ class BoardRow extends HTMLElement {
   }
 
   start() {
+    let boardBlock = [];
     const boardRow = document.createElement("div");
-    const boardBlock0 = document.createElement("div");
-    const boardBlock1 = document.createElement("div");
-    const boardBlock2 = document.createElement("div");
-    const boardBlock3 = document.createElement("div");
-    const boardBlock4 = document.createElement("div");
-
-    boardRow.setAttribute("class", "board-row");
-    boardBlock0.setAttribute("class", "board-block");
-    boardBlock1.setAttribute("class", "board-block");
-    boardBlock2.setAttribute("class", "board-block");
-    boardBlock3.setAttribute("class", "board-block");
-    boardBlock4.setAttribute("class", "board-block");
-
-    boardRow.appendChild(boardBlock0);
-    boardRow.appendChild(boardBlock1);
-    boardRow.appendChild(boardBlock2);
-    boardRow.appendChild(boardBlock3);
-    boardRow.appendChild(boardBlock4);
 
     this.appendChild(boardRow);
+    boardRow.setAttribute("class", "board-row");
+
+    for (let i = 0; i < 5; i++) {
+      boardBlock[i] = document.createElement("div");
+      boardBlock[i].setAttribute("class", "board-block");
+      boardRow.appendChild(boardBlock[i]);
+    }
   }
 }
 
 customElements.define("bord-row", BoardRow);
 
+let boardRow = [];
 const main = document.createElement("main");
-const borrdRow0 = document.createElement("bord-row");
-const borrdRow1 = document.createElement("bord-row");
-const borrdRow2 = document.createElement("bord-row");
-const borrdRow3 = document.createElement("bord-row");
-const borrdRow4 = document.createElement("bord-row");
-const borrdRow5 = document.createElement("bord-row");
 
 root.appendChild(main);
-main.appendChild(borrdRow0);
-main.appendChild(borrdRow1);
-main.appendChild(borrdRow2);
-main.appendChild(borrdRow3);
-main.appendChild(borrdRow4);
-main.appendChild(borrdRow5);
+
+for (let i = 0; i < 5; i++) {
+  boardRow[i] = document.createElement("bord-row");
+  boardRow[i].setAttribute("class", `row${i}`);
+  main.appendChild(boardRow[i]);
+}
