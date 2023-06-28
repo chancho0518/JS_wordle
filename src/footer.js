@@ -1,22 +1,33 @@
-const footer = document.createElement("footer");
-const keyBoard1st = document.createElement("div");
-const keyBoard2nd = document.createElement("div");
-const keyBoard3th = document.createElement("div");
-
-const footerStyle = footer.style;
-const keyBoard1stStyle = keyBoard1st.style;
-const keyBoard2ndStyle = keyBoard2nd.style;
-const keyBoard3thStyle = keyBoard3th.style;
-
+let keyBoard = [];
 let keyPad = [];
 let keyCharactor = [
   ["Q", "W", "E", "R", "T", "Y", "U", "I", "O", "P"],
   ["A", "S", "D", "F", "G", "H", "J", "K", "L"],
   ["Z", "X", "C", "V", "B", "N", "M"],
 ];
+const footer = document.createElement("footer");
+
+body.appendChild(footer);
+
+footer.style.marginTop = "30px";
+footer.style.marginBottom = "30px";
+
+for (let i = 0; i < 3; i++) {
+  keyBoard[i] = document.createElement("div");
+
+  const keyBoardStyle = keyBoard[i].style;
+  keyBoardStyle.display = "flex";
+  keyBoardStyle.gap = "10px";
+  keyBoardStyle.marginTop = "15px";
+  keyBoardStyle.justifyContent = "center";
+  keyBoardStyle.alignItems = "center";
+
+  footer.appendChild(keyBoard[i]);
+}
 
 for (let i = 0; i < keyCharactor[0].length; i++) {
   keyPad[i] = document.createElement("div");
+  keyPad[i].dataset.key = keyCharactor[0][i];
   keyPad[i].innerText = keyCharactor[0][i];
 
   const keyPadStyle = keyPad[i].style;
@@ -29,14 +40,16 @@ for (let i = 0; i < keyCharactor[0].length; i++) {
   keyPadStyle.fontWeight = "bold";
   keyPadStyle.justifyContent = "center";
   keyPadStyle.alignItems = "center";
+  keyPadStyle.cursor = "pointer";
 
-  keyBoard1st.appendChild(keyPad[i]);
+  keyBoard[0].appendChild(keyPad[i]);
 }
 
 for (let i = 0; i < keyCharactor[1].length; i++) {
   const setNum = keyCharactor[0].length;
 
   keyPad[i + setNum] = document.createElement("div");
+  keyPad[i + setNum].dataset.key = keyCharactor[1][i];
   keyPad[i + setNum].innerText = keyCharactor[1][i];
 
   const keyPadStyle = keyPad[i + setNum].style;
@@ -49,8 +62,9 @@ for (let i = 0; i < keyCharactor[1].length; i++) {
   keyPadStyle.fontWeight = "bold";
   keyPadStyle.justifyContent = "center";
   keyPadStyle.alignItems = "center";
+  keyPadStyle.cursor = "pointer";
 
-  keyBoard2nd.appendChild(keyPad[i + setNum]);
+  keyBoard[1].appendChild(keyPad[i + setNum]);
 }
 
 for (let i = 0; i < keyCharactor[2].length + 2; i++) {
@@ -65,6 +79,8 @@ for (let i = 0; i < keyCharactor[2].length + 2; i++) {
   keyPadStyle.backgroundColor = "#d3d6da";
   keyPadStyle.justifyContent = "center";
   keyPadStyle.alignItems = "center";
+  keyPadStyle.cursor = "pointer";
+
   if (i === 0) {
     keyPad[i + setNum].innerText = "ENTER";
     keyPadStyle.width = "80px";
@@ -74,38 +90,16 @@ for (let i = 0; i < keyCharactor[2].length + 2; i++) {
     const backSpace = document.createElement("img");
     backSpace.src = "./assets/backSpace.svg";
     backSpace.alt = "backspace";
-    backSpace.style.width = "30px";
+    backSpace.style.width = "35px";
     keyPadStyle.width = "80px";
     keyPad[i + setNum].appendChild(backSpace);
   } else {
+    keyPad[i + setNum].dataset.key = keyCharactor[2][i - 1];
     keyPadStyle.width = "50px";
     keyPad[i + setNum].innerText = keyCharactor[2][i - 1];
     keyPadStyle.fontSize = "30px";
     keyPadStyle.fontWeight = "bold";
   }
 
-  keyBoard3th.appendChild(keyPad[i + setNum]);
+  keyBoard[2].appendChild(keyPad[i + setNum]);
 }
-
-footerStyle.marginTop = "30px";
-footerStyle.marginBottom = "30px";
-keyBoard1stStyle.display = "flex";
-keyBoard1stStyle.gap = "10px";
-keyBoard1stStyle.marginTop = "15px";
-keyBoard1stStyle.justifyContent = "center";
-keyBoard1stStyle.alignItems = "center";
-keyBoard2ndStyle.display = "flex";
-keyBoard2ndStyle.gap = "10px";
-keyBoard2ndStyle.marginTop = "15px";
-keyBoard2ndStyle.justifyContent = "center";
-keyBoard2ndStyle.alignItems = "center";
-keyBoard3thStyle.display = "flex";
-keyBoard3thStyle.gap = "10px";
-keyBoard3thStyle.marginTop = "15px";
-keyBoard3thStyle.justifyContent = "center";
-keyBoard3thStyle.alignItems = "center";
-
-body.appendChild(footer);
-footer.appendChild(keyBoard1st);
-footer.appendChild(keyBoard2nd);
-footer.appendChild(keyBoard3th);

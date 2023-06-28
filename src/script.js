@@ -6,4 +6,4 @@
 //   boardRow0.appendChild(tagElement);
 // }
 
-const body = document.querySelector("body");
+//const body = document.querySelector("body");

@@ -9,10 +9,14 @@ Requirement:
 7. 키보드 클릭으로 입력(선택)
 
 To-do:
+- reset CSS → JS로 변환(X)
+- CSS반복 코드 함수화(class명 주입 / for문으로 반복)
+
+- font-family 변경
 - JavaScript 파일 분리(import - export 정리)
-- 화면 background-color 밝음 다크 테마 변경 가능
-- reset CSS → JS로 변환 
+- 화면 background-color 밝음 / 다크 테마 변경 가능
 - favicon 추가
+- 시간 끝나기 10초 전에 빨간색 및 경고 표시
 */
 
 // HTML Tag
@@ -56,6 +60,7 @@ headerStyle.display = "flex";
 headerStyle.justifyContent = "space-between";
 headerStyle.alignItems = "center";
 headerStyle.width = "100vw";
+headerStyle.height = "60px";
 headerStyle.borderBottom = "2px solid rgb(215, 215, 215)";
 headerStyle.paddingTop = "10px";
 headerStyle.paddingBottom = "10px";
@@ -86,18 +91,22 @@ titleStyle.alignItems = "center";
 navIconStyle.width = "45px";
 navIconStyle.justifyContent = "center";
 navIconStyle.alignItems = "center";
+navIconStyle.cursor = "pointer";
 
 questionMarkStyle.width = "40px";
 questionMarkStyle.justifyContent = "center";
 questionMarkStyle.alignItems = "center";
+questionMarkStyle.cursor = "pointer";
 
 chartBarStyle.width = "40px";
 chartBarStyle.justifyContent = "center";
 chartBarStyle.alignItems = "center";
+chartBarStyle.cursor = "pointer";
 
 settingIconStyle.width = "40px";
 settingIconStyle.justifyContent = "center";
 settingIconStyle.alignItems = "center";
+settingIconStyle.cursor = "pointer";
 
 // HTML
 body.appendChild(header);
