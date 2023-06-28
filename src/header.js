@@ -12,6 +12,7 @@ To-do:
 - JavaScript 파일 분리(import - export 정리)
 - 화면 background-color 밝음 다크 테마 변경 가능
 - reset CSS → JS로 변환 
+- favicon 추가
 */
 
 // HTML Tag
@@ -20,9 +21,9 @@ const header = document.createElement("header");
 
 const menuBar = document.createElement("div");
 
-const menuBar_navIcon = document.createElement("div");
-const menuBar_title = document.createElement("div");
-const menuBar_icons = document.createElement("div");
+const menuBarNavIcon = document.createElement("div");
+const menuBarTitle = document.createElement("div");
+const menuBarIcons = document.createElement("div");
 
 const title = document.createElement("h1");
 const navIcon = document.createElement("img");
@@ -34,9 +35,9 @@ const titleText = "Wordle";
 
 // Selector
 menuBar.setAttribute("class", "menu-bar");
-menuBar_navIcon.setAttribute("class", "menu-bar__navIcon");
-menuBar_title.setAttribute("class", "menu-bar__title");
-menuBar_icons.setAttribute("class", "menu-bar__icons");
+menuBarNavIcon.setAttribute("class", "menu-bar__navIcon");
+menuBarTitle.setAttribute("class", "menu-bar__title");
+menuBarIcons.setAttribute("class", "menu-bar__icons");
 
 // Contents
 title.innerText = titleText;
@@ -66,15 +67,15 @@ menuBarStyle.justifyContent = "space-between";
 menuBarStyle.alignItems = "center";
 menuBarStyle.marginTop = "10px";
 
-menuBarNavIconStyle = menuBar_navIcon.style;
+menuBarNavIconStyle = menuBarNavIcon.style;
 menuBarNavIconStyle.display = "flex";
 menuBarNavIconStyle.justifyContent = "center";
 menuBarNavIconStyle.alignItems = "center";
 menuBarNavIconStyle.marginRight = "15px";
 
-menuBarTitle = menuBar_title.style;
+menuBarTitleStyle = menuBarTitle.style;
 
-menuBarIconsStyle = menuBar_icons.style;
+menuBarIconsStyle = menuBarIcons.style;
 menuBarIconsStyle.display = "flex";
 menuBarIconsStyle.justifyContent = "center";
 menuBarIconsStyle.alignItems = "center";
@@ -96,11 +97,59 @@ settingIconStyle.width = "40px";
 // HTML
 root.appendChild(header);
 header.appendChild(menuBar);
-menuBar.appendChild(menuBar_navIcon);
-menuBar.appendChild(menuBar_title);
-menuBar.appendChild(menuBar_icons);
-menuBar_navIcon.appendChild(navIcon);
-menuBar_title.appendChild(title);
-menuBar_icons.appendChild(questionMark);
-menuBar_icons.appendChild(chartBar);
-menuBar_icons.appendChild(settingIcon);
+menuBar.appendChild(menuBarNavIcon);
+menuBar.appendChild(menuBarTitle);
+menuBar.appendChild(menuBarIcons);
+menuBarNavIcon.appendChild(navIcon);
+menuBarTitle.appendChild(title);
+menuBarIcons.appendChild(questionMark);
+menuBarIcons.appendChild(chartBar);
+menuBarIcons.appendChild(settingIcon);
+
+class BoardRow extends HTMLElement {
+  connectedCallback() {
+    this.start();
+  }
+
+  start() {
+    const boardRow = document.createElement("div");
+    const boardBlock0 = document.createElement("div");
+    const boardBlock1 = document.createElement("div");
+    const boardBlock2 = document.createElement("div");
+    const boardBlock3 = document.createElement("div");
+    const boardBlock4 = document.createElement("div");
+
+    boardRow.setAttribute("class", "board-row");
+    boardBlock0.setAttribute("class", "board-block");
+    boardBlock1.setAttribute("class", "board-block");
+    boardBlock2.setAttribute("class", "board-block");
+    boardBlock3.setAttribute("class", "board-block");
+    boardBlock4.setAttribute("class", "board-block");
+
+    boardRow.appendChild(boardBlock0);
+    boardRow.appendChild(boardBlock1);
+    boardRow.appendChild(boardBlock2);
+    boardRow.appendChild(boardBlock3);
+    boardRow.appendChild(boardBlock4);
+
+    this.appendChild(boardRow);
+  }
+}
+
+customElements.define("bord-row", BoardRow);
+
+const main = document.createElement("main");
+const borrdRow0 = document.createElement("bord-row");
+const borrdRow1 = document.createElement("bord-row");
+const borrdRow2 = document.createElement("bord-row");
+const borrdRow3 = document.createElement("bord-row");
+const borrdRow4 = document.createElement("bord-row");
+const borrdRow5 = document.createElement("bord-row");
+
+root.appendChild(main);
+main.appendChild(borrdRow0);
+main.appendChild(borrdRow1);
+main.appendChild(borrdRow2);
+main.appendChild(borrdRow3);
+main.appendChild(borrdRow4);
+main.appendChild(borrdRow5);
