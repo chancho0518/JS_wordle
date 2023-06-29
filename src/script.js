@@ -7,3 +7,21 @@
 // }
 
 //const body = document.querySelector("body");
+let attemps = 0;
+let index = 0;
+
+function appStart() {
+  const handleKeyDown = (event) => {
+    const key = event.key;
+    const keyCode = event.keyCode;
+
+    console.log(key, keyCode);
+    const target = document.querySelector("board-row");
+
+    console.log(target);
+  };
+
+  window.addEventListener("keydown", handleKeyDown);
+}
+
+appStart();

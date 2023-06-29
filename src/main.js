@@ -10,6 +10,7 @@ class BoardRow extends HTMLElement {
 
     for (let i = 0; i < 5; i++) {
       boardBlock[i] = document.createElement("div");
+      boardBlock[i].setAttribute("class", "board-block");
       boardBlock[i].dataset.id = i;
       boardRow.appendChild(boardBlock[i]);
     }
@@ -36,7 +37,7 @@ class BoardRow extends HTMLElement {
   }
 }
 
-customElements.define("bord-row", BoardRow);
+customElements.define("board-row", BoardRow);
 
 let boardRow = [];
 const main = document.createElement("main");
@@ -57,6 +58,7 @@ body.appendChild(main);
 main.appendChild(time);
 
 for (let i = 0; i < 6; i++) {
-  boardRow[i] = document.createElement("bord-row");
+  boardRow[i] = document.createElement("board-row");
+  boardRow[i].dataset.id = i;
   main.appendChild(boardRow[i]);
 }

@@ -7,16 +7,16 @@ Requirement:
 5. 상단에 게임시간 표시(추가)
 6. 키보드에도 동일하게 표시(선택)
 7. 키보드 클릭으로 입력(선택)
+8 화면 background-color 밝음 / 다크 테마 변경 가능(산택)
+9. favicon 추가(선택)
+10. 시간 끝나기 10초 전에 빨간색 및 경고 표시(선택)
 
 To-do:
-- reset CSS → JS로 변환(X)
 - CSS반복 코드 함수화(class명 주입 / for문으로 반복)
 
+- reset CSS → JS로 변환(X: 적용 안됨)
 - font-family 변경
 - JavaScript 파일 분리(import - export 정리)
-- 화면 background-color 밝음 / 다크 테마 변경 가능
-- favicon 추가
-- 시간 끝나기 10초 전에 빨간색 및 경고 표시
 */
 
 // HTML Tag
