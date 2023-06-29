@@ -104,7 +104,7 @@ const tag_6th = [
   "q:after",
 ];
 const tag_7th = ["table"];
-const tag_8th = ["p", "h4", "h3", "h2", "h1", "span", "button", "input"];
+const tag_8th = ["p", "h4", "h3", "h2", "h1", "span", "div", "button", "input"];
 
 let tagElement_1st = [];
 for (let i = 0; i < tag_1st.length; i++) {

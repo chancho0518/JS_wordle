@@ -27,9 +27,11 @@ class BoardRow extends HTMLElement {
       boardBlockStyle.display = "flex";
       boardBlockStyle.justifyContent = "center";
       boardBlockStyle.alignItems = "center";
-      boardBlockStyle.border = "3px solid #d3d6da";
+      boardBlockStyle.border = "2.5px solid #D3D6DA";
       boardBlockStyle.width = "70px";
       boardBlockStyle.height = "70px";
+      boardBlockStyle.fontSize = "35px";
+      boardBlockStyle.fontWeight = "bold";
     });
 
     this.attachShadow({ mode: "open" });
