@@ -27,7 +27,7 @@ class BoardRow extends HTMLElement {
       boardBlockStyle.display = "flex";
       boardBlockStyle.justifyContent = "center";
       boardBlockStyle.alignItems = "center";
-      boardBlockStyle.border = "2.5px solid #D3D6DA";
+      boardBlockStyle.border = "2px solid #D3D6DA";
       boardBlockStyle.width = "70px";
       boardBlockStyle.height = "70px";
       boardBlockStyle.fontSize = "35px";
@@ -43,21 +43,21 @@ customElements.define("board-row", BoardRow);
 
 let boardRow = [];
 const main = document.createElement("main");
-const time = document.createElement("div");
-
-time.innerText = "00:00";
+const timer = document.createElement("div");
+timer.setAttribute("id", "timer");
+timer.innerText = "15";
 
 main.style.marginTop = "20px";
-time.style.display = "flex";
-time.style.justifyContent = "center";
-time.style.alignItems = "center";
-time.style.fontSize = "40px";
-time.style.fontWeight = "bold";
-time.style.marginBTop = "20px";
-time.style.marginBottom = "20px";
+timer.style.display = "flex";
+timer.style.justifyContent = "center";
+timer.style.alignItems = "center";
+timer.style.fontSize = "40px";
+timer.style.fontWeight = "bold";
+timer.style.marginBTop = "20px";
+timer.style.marginBottom = "20px";
 
 body.appendChild(main);
-main.appendChild(time);
+main.appendChild(timer);
 
 for (let i = 0; i < 6; i++) {
   boardRow[i] = document.createElement("board-row");

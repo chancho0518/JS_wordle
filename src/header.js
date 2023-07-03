@@ -5,16 +5,23 @@ Requirement:
 3. 존재하면 노란색, 위치도 맞으면 초록색으로 표시
 4. 게임 종료 판단
 5. 상단에 게임시간 표시(추가)
+
 6. 키보드에도 동일하게 표시(선택)
 7. 키보드 클릭으로 입력(선택)
-8 화면 background-color 밝음 / 다크 테마 변경 가능(산택)
+8. 화면 background-color 밝음 / 다크 테마 변경 가능(산택)
 9. favicon 추가(선택)
 10. 시간 끝나기 10초 전에 빨간색 및 경고 표시(선택)
+11. 답 입력시 애니메이션 효과(선택)
+12. 게임종료 애니메이션 효과(선택)
 
 To-do:
-- CSS반복 코드 함수화(class명 주입 / for문으로 반복)
+- CSS반복 코드 함수화(class명 주입 / for문으로 반복) V
+- reset CSS → JS로 변환(X: 적용 안됨) V
 
-- reset CSS → JS로 변환(X: 적용 안됨)
+- 게임종료 display
+- backSpace key 기능
+- timer 한번만 실행하기
+- title 가운데 정렬
 - font-family 변경
 - JavaScript 파일 분리(import - export 정리)
 */
